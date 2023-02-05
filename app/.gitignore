@@ -1,0 +1,6 @@
+/build
+
+google-services.json
+## file is missing. The Google Services Plugin cannot function without it.
+## Sign up for a free Firebase account at https://firebase.google.com/ and
+## download your google-services.json file.
