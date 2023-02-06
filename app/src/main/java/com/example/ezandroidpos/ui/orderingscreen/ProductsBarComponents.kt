@@ -1,5 +1,6 @@
 package com.example.ezandroidpos.ui.orderingscreen
 
+import android.util.Log
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -30,21 +31,18 @@ fun ProductsGrid(
         factory = ProductsViewModelFactory(ProductsRepo())
     ),
 ) {
-//    val products = ProductsGrid.products[state]
+    when (val productsList = productsViewModel.productsStateFlow
+        .asStateFlow().collectAsState().value) {
 
-
-    when (val productsList = productsViewModel
-        .productsStateFlow
-        .asStateFlow()
-        .collectAsState()
-        .value) {
         is OnSuccess -> {
+
             val products = productsList.querySnapshot?.toObjects(Item::class.java)
+
+            Log.d("fire", "ProductsGrid: ${products}")
 
             LazyVerticalGrid(
                 columns = GridCells.Adaptive(150.dp),
                 modifier = modifier
-//                    .fillMaxWidth()
                     .fillMaxSize()
                     .padding(bottom = 10.dp),
                 contentPadding = PaddingValues(
