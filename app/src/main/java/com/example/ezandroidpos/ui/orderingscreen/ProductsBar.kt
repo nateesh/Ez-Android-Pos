@@ -38,7 +38,7 @@ fun ProductsBar(
         TabRow(
             modifier = modifier
                 .fillMaxWidth()
-                .padding(10.dp),
+                .padding(top = 10.dp),
             selectedTabIndex = pagerState.currentPage,
             indicator = { tabPositions ->
                 TabRowDefaults.Indicator(
@@ -77,10 +77,10 @@ fun ProductsBar(
     }
 }
 
-@Preview
-@Composable
-fun ProductsBarPreview() {
-    ProductsBar(modifier = Modifier)
-}
+//@Preview
+//@Composable
+//fun ProductsBarPreview() {
+//    ProductsBar(modifier = Modifier, viewModel = hiltViewModel<PosViewModel>())
+//}
 
 

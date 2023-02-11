@@ -113,7 +113,11 @@ fun OrderInfo(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
-        Text(text = "Order #$orderId")
+        Text(
+            text = "Order #$orderId",
+            fontSize = 20.sp,
+            color = MaterialTheme.colorScheme.onBackground,
+        )
         Text(text = "${LocalDate.now()}")
     }
 }
@@ -130,14 +134,18 @@ fun OrderItem(
         shape = RoundedCornerShape(2.dp),
         modifier = Modifier
             .padding(2.dp)
+            .background(MaterialTheme.colorScheme.surface)
     ) {
         Row(
             modifier = modifier
-                .padding(start = 10.dp),
+                .padding(start = 10.dp)
+                .background(MaterialTheme.colorScheme.secondaryContainer),
             verticalAlignment = Alignment.CenterVertically
+
         ) {
             Text(
                 text = item.name,
+                color = MaterialTheme.colorScheme.onSecondaryContainer,
             )
             Spacer(
                 modifier = Modifier
@@ -196,8 +204,8 @@ fun ActionButtons(
             Text(
                 modifier = modifier
                     .padding(end = 10.dp),
-                fontSize = 12.sp,
-                text = "Total: $${orderTotal}"
+                fontSize = 14.sp,
+                text = stringResource(id = R.string.total) + "$orderTotal"
             )
         }
 
@@ -216,7 +224,10 @@ fun ActionButtons(
             shape = RoundedCornerShape(8.dp),
             onClick = { onCreditClick() }
         ) {
-            Text(text = stringResource(R.string.pay_card))
+            Text(
+                text = stringResource(R.string.pay_card),
+                color = MaterialTheme.colorScheme.onPrimaryContainer
+            )
         }
     }
 

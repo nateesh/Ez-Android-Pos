@@ -48,6 +48,10 @@ class PosViewModel() : ViewModel() {
         Log.d("PosViewModel", "Order Cleared: ${_uiOrderState.value.orderItems}")
     }
 
+    fun updateOrderItemPrice() {
+        TODO()
+    }
+
     fun onCash(orderId: Int) {
         if (!orderIsEmpty()) {
 

@@ -7,11 +7,15 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.ezandroidpos.data.ProductsRepo
@@ -51,6 +55,16 @@ fun PointOfSale(
                 modifier = Modifier
                     .background(androidx.compose.material3.MaterialTheme.colorScheme.background)
             )
+            FloatingActionButton(
+                onClick = { /* TODO */ },
+                elevation = FloatingActionButtonDefaults.elevation(10.dp, 10.dp, 1.dp),
+                content = { Icon(Icons.Filled.Add, contentDescription = "") },
+                backgroundColor = androidx.compose.material3.MaterialTheme.colorScheme.secondary,
+                modifier = Modifier
+                    .align(Alignment.BottomStart)
+                    .padding(16.dp),
+//                shape = MaterialTheme.shapes.medium,
+            )
         }
         Box(
             modifier = Modifier
@@ -58,7 +72,7 @@ fun PointOfSale(
         ) {
             SideBar(
                 modifier = Modifier
-                    .background(androidx.compose.material3.MaterialTheme.colorScheme.background),
+                    .background(androidx.compose.material3.MaterialTheme.colorScheme.secondaryContainer),
             )
         }
     }

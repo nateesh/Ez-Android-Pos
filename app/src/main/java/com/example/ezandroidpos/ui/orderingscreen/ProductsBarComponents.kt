@@ -1,10 +1,13 @@
 package com.example.ezandroidpos.ui.orderingscreen
 
 import android.util.Log
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.magnifier
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
@@ -38,13 +41,12 @@ fun ProductsGrid(
 
             val products = productsList.querySnapshot?.toObjects(Item::class.java)
 
-            Log.d("fire", "ProductsGrid: ${products}")
+            Log.d("fire", "ProductsGrid: $products")
 
             LazyVerticalGrid(
                 columns = GridCells.Adaptive(150.dp),
                 modifier = modifier
-                    .fillMaxSize()
-                    .padding(bottom = 10.dp),
+                    .fillMaxSize(),
                 contentPadding = PaddingValues(
                     start = 12.dp,
                     top = 16.dp,
@@ -85,7 +87,7 @@ fun ProductCard(
             .height(100.dp),
         shape = RoundedCornerShape(4.dp),
         colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceVariant,
+            containerColor = MaterialTheme.colorScheme.secondaryContainer,
             contentColor = MaterialTheme.colorScheme.onSurfaceVariant,
         ),
         elevation = CardDefaults.cardElevation(
@@ -100,18 +102,32 @@ fun ProductCard(
             modifier = Modifier
                 .padding(10.dp)
         ) {
-            Text(text = product.name, fontStyle = MaterialTheme.typography.bodyLarge.fontStyle)
+            Text(
+                text = product.name,
+                fontStyle = MaterialTheme.typography.bodyLarge.fontStyle,
+                color = MaterialTheme.colorScheme.onSurface,
+            )
             Divider(
                 modifier = Modifier
-                    .padding(5.dp),
-                color = MaterialTheme.colorScheme.onSurface
+                    .padding(top = 7.dp),
+                color = MaterialTheme.colorScheme.secondary
             )
             Spacer(modifier = Modifier.weight(1f))
-            Text(
-                text = "$${product.price}",
+            Box(
                 modifier = Modifier
-                    .align(Alignment.End),
-            )
+                    .align(Alignment.End)
+                    .background(
+                        color = MaterialTheme.colorScheme.secondaryContainer,
+                        shape = RoundedCornerShape(4.dp)
+                    )
+                    .padding(5.dp),
+            ) {
+                Text(
+                    text = product.price.toString(),
+                    fontStyle = MaterialTheme.typography.bodyLarge.fontStyle,
+                    color = MaterialTheme.colorScheme.onPrimaryContainer,
+                )
+            }
         }
     }
 }
