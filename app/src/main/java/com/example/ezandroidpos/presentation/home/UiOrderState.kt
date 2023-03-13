@@ -1,4 +1,4 @@
-package com.example.ezandroidpos.ui
+package com.example.ezandroidpos.presentation.home
 
 import com.example.ezandroidpos.data.Item
 

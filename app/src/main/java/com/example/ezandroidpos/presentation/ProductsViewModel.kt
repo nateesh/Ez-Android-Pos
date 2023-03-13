@@ -1,4 +1,4 @@
-package com.example.ezandroidpos.ui
+package com.example.ezandroidpos.presentation
 
 
 import androidx.lifecycle.ViewModel
@@ -12,8 +12,7 @@ import kotlinx.coroutines.launch
 sealed class ProductsResponse
 data class OnSuccess(val querySnapshot: QuerySnapshot?): ProductsResponse()
 data class OnError(val exception: FirebaseFirestoreException?): ProductsResponse()
-
-class ProductsViewModel(val productsRepo: ProductsRepo): ViewModel() {
+class ProductsViewModel(private val productsRepo: ProductsRepo): ViewModel() {
 
     val productsStateFlow = MutableStateFlow<ProductsResponse?>(null)
 

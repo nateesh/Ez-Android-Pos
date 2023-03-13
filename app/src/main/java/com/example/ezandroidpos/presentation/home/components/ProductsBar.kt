@@ -1,4 +1,4 @@
-package com.example.ezandroidpos.ui
+package com.example.ezandroidpos.presentation
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -9,11 +9,10 @@ import androidx.compose.material3.TabRowDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.ezandroidpos.data.Category
-import com.example.ezandroidpos.ui.orderingscreen.ProductsGrid
+import com.example.ezandroidpos.presentation.home.PosViewModel
+import com.example.ezandroidpos.presentation.home.ProductsGrid
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
@@ -24,7 +23,7 @@ import kotlinx.coroutines.launch
 @Composable
 fun ProductsBar(
     modifier: Modifier,
-    viewModel: PosViewModel = hiltViewModel(),
+    viewModel: PosViewModel,
 ) {
 
     val pagerState = rememberPagerState()

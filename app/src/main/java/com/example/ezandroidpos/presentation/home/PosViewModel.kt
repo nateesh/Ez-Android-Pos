@@ -1,19 +1,21 @@
-package com.example.ezandroidpos.ui
+package com.example.ezandroidpos.presentation.home
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.example.ezandroidpos.data.Item
 import com.google.firebase.firestore.FirebaseFirestore
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import java.time.LocalDate
+import javax.inject.Inject
 
-class PosViewModel() : ViewModel() {
+@HiltViewModel
+class PosViewModel @Inject constructor() : ViewModel() {
 
     private val firestore = FirebaseFirestore.getInstance()
     val ordersCollection = firestore.collection("orders")
-
 
     private val _uiOrderState = MutableStateFlow(UiOrderState())
     val uiOrderState: StateFlow<UiOrderState> = _uiOrderState

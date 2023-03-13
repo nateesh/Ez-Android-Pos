@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3Api::class)
 
-package com.example.ezandroidpos.ui.orderingscreen
+package com.example.ezandroidpos.presentation.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -20,16 +20,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.ezandroidpos.R
 import com.example.ezandroidpos.data.Item
-import com.example.ezandroidpos.ui.PosViewModel
 import java.time.LocalDate
 
 @Composable
 fun SideBar(
     modifier: Modifier,
-    viewModel: PosViewModel = hiltViewModel(),
+    viewModel: PosViewModel,
 ) {
     val orderState by viewModel.uiOrderState.collectAsState()
 

@@ -1,4 +1,4 @@
-package com.example.ezandroidpos.ui
+package com.example.ezandroidpos.presentation
 
 import androidx.compose.material3.TabPosition
 import androidx.compose.ui.Modifier
