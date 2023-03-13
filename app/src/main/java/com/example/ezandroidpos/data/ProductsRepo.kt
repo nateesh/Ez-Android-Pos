@@ -1,7 +1,7 @@
 package com.example.ezandroidpos.data
 
-import com.example.ezandroidpos.ui.OnError
-import com.example.ezandroidpos.ui.OnSuccess
+import com.example.ezandroidpos.presentation.OnError
+import com.example.ezandroidpos.presentation.OnSuccess
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.callbackFlow
