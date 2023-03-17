@@ -18,6 +18,7 @@ import androidx.navigation.NavController
 import com.example.ezandroidpos.presentation.home.PosViewModel
 import com.example.ezandroidpos.presentation.ProductsBar
 import com.example.ezandroidpos.presentation.home.SideBar
+import com.example.ezandroidpos.util.Screen
 
 @Composable
 fun PointOfSaleScreen(

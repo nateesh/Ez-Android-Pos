@@ -66,7 +66,7 @@ fun ProductsGrid(
             }
         }
         else -> {
-            Text(text = "error")
+            Text(text = "There seems to be no products in this category")
         }
     }
 }
